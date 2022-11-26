@@ -4,12 +4,12 @@ services:
     container_name: eve-movies-db
     image: mongo
     ports:
-      - "27018:27017"
+      - "27017:27017"
 
   eve-movies-core:
     container_name: eve-movies-core
     restart: always
-    build: ../evemovies-core
+    build: ../eve-movies-core
     ports:
       - "3001:3001"
     depends_on:
@@ -18,7 +18,7 @@ services:
   eve-movies-web:
     container_name: eve-movies-web
     restart: always
-    build: ../evemovies-web
+    build: ../eve-movies-web
     ports:
       - "3000:3000"
     depends_on:
@@ -27,6 +27,6 @@ services:
   # eve-moviles-mobile:
   #   container_name: eve-movies-mobile
   #   restart: always
-  #   build: ../evemovies-mobile
+  #   build: ../eve-movies-mobile
   #   depends_on:
   #     - eve-movies-core
